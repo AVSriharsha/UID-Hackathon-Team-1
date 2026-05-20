@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Feedback Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>DASTAAN 2026</h1>
+        <p>Annual College Campus Sports Meet</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sports.html">Sports Events</a></li>
+            <li><a href="feedback.html" class="active">Feedback</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="card">
+            <h3>Event Feedback Form</h3>
+            <p style="margin-bottom: 1.5rem; color:#666;">Your feedback helps us improve future athletic events. Please fill out the form below.</p>
+            
+            <div id="feedbackError" class="error-msg"></div>
+            <div id="feedbackSuccess" class="success-msg"></div>
+
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <label for="fbName">Student Name</label>
+                    <input type="text" id="fbName" placeholder="Jane Doe (Optional)">
+                </div>
+                <div class="form-group">
+                    <label for="fbRegNo">Register Number *</label>
+                    <input type="text" id="fbRegNo" placeholder="REG12345">
+                </div>
+                <div class="form-group">
+                    <label for="fbEvent">Event Attended *</label>
+                    <select id="fbEvent">
+                        <option value="">-- Choose past event index --</option>
+                        <option value="100m Sprint">EV001 - 100m Sprint</option>
+                        <option value="Basketball">EV002 - Basketball</option>
+                        <option value="Chess Championship">EV003 - Chess Championship</option>
+                        <option value="Volleyball">EV004 - Volleyball</option>
+                        <option value="Cricket Tournament">EV005 - Cricket Tournament</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fbRating">Rating (1 to 5 Stars) *</label>
+                    <select id="fbRating">
+                        <option value="">-- Select Score Rating --</option>
+                        <option value="5">5 Stars - Excellent Experience</option>
+                        <option value="4">4 Stars - Very Good</option>
+                        <option value="3">3 Stars - Satisfactory</option>
+                        <option value="2">2 Stars - Needs Improvement</option>
+                        <option value="1">1 Star - Unsatisfactory</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label for="fbComments">Detailed Comments * (Minimum 20 Characters)</label>
+                    <textarea id="fbComments" rows="5" placeholder="Share your experience regarding scheduling, setup, officiating, or coordination..."></textarea>
+                    <small id="charCounter" style="color:#777; margin-top: 0.2rem;">0 characters entered.</small>
+                </div>
+
+                <div class="form-group full-width">
+                    <button type="submit">Submit Feedback Summary</button>
+                </div>
+            </form>
+        </section>
+
+        
+        <section class="card" id="feedbackSummaryCard" style="display:none;">
+            <h3>Processed Event Feedback Records</h3>
+            <div id="feedbackSummaryContent"></div>
+            
+            <div class="summary-box" style="background-color: #eaf2f8; border-left: 5px solid #2a5298;">
+                <strong>Running Aggregated Metrics:</strong> Live Metric Calculation Average Event Rating Across Session is: <span id="avgRatingSpan" style="font-weight:bold; color:#1e3c72;">0.0</span> / 5.0
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Department of Physical Education & Sports | Contact: sports@college.edu | Tel: +1 (555) 019-2831</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

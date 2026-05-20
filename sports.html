@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Events & Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>DASTAAN 2026</h1>
+        <p>Annual College Campus Sports Meet</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sports.html" class="active">Sports Events</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="card">
+            <h3>Available Sports Events</h3>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Event ID</th>
+                            <th>Event Name</th>
+                            <th>Category</th>
+                            <th>Schedule Date/Time</th>
+                            <th>Venue</th>
+                            <th>Fee</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>EV001</td>
+                            <td>100m Sprint</td>
+                            <td>Athletics (Individual)</td>
+                            <td>Oct 12, 09:00 AM</td>
+                            <td>Main Stadium Track</td>
+                            <td>Free</td>
+                            <td class="status-open">Open</td>
+                        </tr>
+                        <tr>
+                            <td>EV002</td>
+                            <td>Basketball</td>
+                            <td>Team Sport</td>
+                            <td>Oct 12, 11:30 AM</td>
+                            <td>Indoor Court A</td>
+                            <td>$15</td>
+                            <td class="status-open">Open</td>
+                        </tr>
+                        <tr>
+                            <td>EV003</td>
+                            <td>Chess Championship</td>
+                            <td>Individual Indoor</td>
+                            <td>Oct 13, 10:00 AM</td>
+                            <td>Seminar Hall Block B</td>
+                            <td>Free</td>
+                            <td class="status-open">Open</td>
+                        </tr>
+                        <tr>
+                            <td>EV004</td>
+                            <td>Volleyball</td>
+                            <td>Team Sport</td>
+                            <td>Oct 13, 02:00 PM</td>
+                            <td>Outdoor Sand Court</td>
+                            <td>$10</td>
+                            <td class="status-open">Open</td>
+                        </tr>
+                        <tr>
+                            <td>EV005</td>
+                            <td>Cricket Tournament</td>
+                            <td>Team Sport</td>
+                            <td>Oct 14, 08:00 AM</td>
+                            <td>College Cricket Oval</td>
+                            <td>$25</td>
+                            <td class="status-closed">Closed</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>Student Participation Portal</h3>
+            
+            <div id="errorBox" class="error-msg"></div>
+            <div id="successBox" class="success-msg"></div>
+
+            <form id="sportsForm">
+                <div class="form-group">
+                    <label for="studentName">Student Full Name *</label>
+                    <input type="text" id="studentName" placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="regNo">Register Number *</label>
+                    <input type="text" id="regNo" placeholder="REG12345">
+                </div>
+                <div class="form-group">
+                    <label for="emailId">Email Address *</label>
+                    <input type="email" id="emailId" placeholder="john@college.edu">
+                </div>
+                <div class="form-group">
+                    <label for="mobileNo">Mobile Number *</label>
+                    <input type="text" id="mobileNo" placeholder="10-digit number">
+                </div>
+                <div class="form-group">
+                    <label for="department">Department *</label>
+                    <select id="department">
+                        <option value="">-- Select Department --</option>
+                        <option value="CSE">Computer Science & Eng</option>
+                        <option value="ECE">Electronics & Comm</option>
+                        <option value="MECH">Mechanical Eng</option>
+                        <option value="CIVIL">Civil Eng</option>
+                        <option value="MBA">Business Administration</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="yearOfStudy">Year of Study *</label>
+                    <select id="yearOfStudy">
+                        <option value="">-- Select Year --</option>
+                        <option value="1">I Year</option>
+                        <option value="2">II Year</option>
+                        <option value="3">III Year</option>
+                        <option value="4">IV Year</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label for="eventSelect">Select Event *</label>
+                    <select id="eventSelect">
+                        <option value="">-- Select target entry --</option>
+                        <option value="100m Sprint" data-type="Individual" data-status="Open">EV001 - 100m Sprint (Open)</option>
+                        <option value="Basketball" data-type="Team" data-status="Open">EV002 - Basketball (Open)</option>
+                        <option value="Chess Championship" data-type="Individual" data-status="Open">EV003 - Chess Championship (Open)</option>
+                        <option value="Volleyball" data-type="Team" data-status="Open">EV004 - Volleyball (Open)</option>
+                        <option value="Cricket Tournament" data-type="Team" data-status="Closed">EV005 - Cricket Tournament (Closed)</option>
+                    </select>
+                </div>
+
+                
+                <div id="teamFieldsContainer" class="team-fields">
+                    <div class="form-group">
+                        <label for="participationTitle">Participation Title / Role</label>
+                        <input type="text" id="participationTitle" placeholder="e.g., Team Captain / Member">
+                    </div>
+                    <div class="form-group">
+                        <label for="teamName">Team Name</label>
+                        <input type="text" id="teamName" placeholder="e.g., Cyber Knights">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="teamSize">Number of Team Members (Range: 2 to 6)</label>
+                        <input type="number" id="teamSize" placeholder="Enter sizing constraint integer">
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <button type="submit">Submit Registration</button>
+                </div>
+            </form>
+        </section>
+
+        
+        <section class="card" id="submissionOutputCard" style="display:none;">
+            <h3>Registered Competitor Master Roster</h3>
+            <div id="participantDetails"></div>
+            
+            <div class="summary-box">
+                <strong>Running Metrics Account:</strong> Total Active Registrations Processed: <span id="totalCount" style="font-size:1.2rem; color:#1e3c72; font-weight:bold;">0</span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Department of Physical Education & Sports | Contact: sports@college.edu | Tel: +1 (555) 019-2831</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
